@@ -36,7 +36,7 @@ const PORT = process.env.PORT || 3001;
 
 server.listen(PORT, () => {
 // server.listen(3001, () => {
-  console.log("SERVER RUNNING");
+  res.send("SERVER RUNNING");
 });
 
 if (process.env.NODE_ENV === 'production') {
