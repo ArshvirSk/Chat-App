@@ -10,9 +10,9 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     // origin: "*",
-    origin: "https://salty-retreat-48240.herokuapp.com",
-    // origin: "http://localhost:3000", 
-    methods: ["GET", "POST", "OPTIONS"],
+    // origin: "https://salty-retreat-48240.herokuapp.com",
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
   },
 });
 
