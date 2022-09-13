@@ -6,8 +6,7 @@ import io from "socket.io-client";
 import Chat from "./Chat";
 import "./App.css";
 
-const socket = io.connect();
-// const socket = io.connect("https://salty-retreat-48240.herokuapp.com");
+const socket = io.connect("https://salty-retreat-48240.herokuapp.com");
 // const socket = io.connect("http://localhost:3001");
 
 function App() {
@@ -141,11 +140,11 @@ function App() {
           </form>
           <button onClick={joinRoom}>Join A Room</button>
         </div>
-      ) : (
+        ) : (
           <div>
             <Chat socket={socket} username={username} room={room} />
           </div>
-      )}
+        )}
     </div>
   );
 }
