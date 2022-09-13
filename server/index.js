@@ -9,10 +9,24 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://salty-retreat-48240.herokuapp.com",
+    origin: "*",
+    // origin: "https://salty-retreat-48240.herokuapp.com",
     // origin: "http://localhost:3000", 
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "OPTIONS"],
   },
+});
+
+const PORT = process.env.PORT || 3001;
+
+server.listen(PORT, () => {
+// server.listen(3001, () => {
+  io.on("connection", socket => {
+    console.log("SERVER RUNNING");
+    console.log("ok");
+    console.log(socket.id);
+    // io.in(roomID).emit()
+    socket.emit("WELCOME_MESSAGE", ` ${socket.id} welcome!! `);
+  });
 });
 
 io.on("connection", (socket) => {
@@ -30,13 +44,6 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("User Disconnected", socket.id);
   });
-});
-
-const PORT = process.env.PORT || 3001;
-
-server.listen(PORT, () => {
-// server.listen(3001, () => {
-  console.log("SERVER RUNNING");
 });
 
 if (process.env.NODE_ENV === 'production') {
