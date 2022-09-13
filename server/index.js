@@ -7,11 +7,11 @@ app.use(cors());
 
 const server = http.createServer(app);
 
-const io = new Server(server, {
+const io = new Server(http, {
   cors: {
-    origin: "*",
+    // origin: "*",
     // origin: "https://salty-retreat-48240.herokuapp.com",
-    // origin: "http://localhost:3000", 
+    origin: "http://localhost:3000", 
     methods: ["GET", "POST", "OPTIONS"],
   },
 });
