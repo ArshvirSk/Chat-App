@@ -108,7 +108,7 @@ function App() {
         />
       {!showChat ? (
         <div className="joinChatContainer">
-          <h3>Join A Chat</h3>
+          <h3>Join Chat</h3>
           <form action="">
             <div className="input-field">
               <input
