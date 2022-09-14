@@ -1,15 +1,15 @@
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser')
 // const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
 app.use(cors());
 
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-const server = app.listen(PORT);
-// const server = http.createServer(app);
+// const server = app.listen(PORT);
+const server = http.createServer(app);
+
 const io = new Server(server, {
     cors: {
     // origin: "*",
