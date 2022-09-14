@@ -112,8 +112,9 @@ form {
 }
 
 img {
-  width: 12%;
-  height: 23%;
+  padding-top: 30px;
+  width: 220px;
+  height: 200px;
   display: flex;
   z-index: 3;
 }
@@ -266,9 +267,11 @@ img {
   opacity: 0 !important;
 }
 
-@media screen and (max-width: 1024px) {
+
+@media screen and (max-width: 728px) {
   img {
-    width: 25%;
-    height: 24%;
+    padding-top: 20px;
+    width: 200px;
+    height: 200px;
   };
 }
