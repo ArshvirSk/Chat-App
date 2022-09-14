@@ -10,6 +10,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "https://salty-retreat-48240.herokuapp.com",
+    // origin: "https://localhost:3001", 
     methods: ["GET", "POST"],
   },
 });
@@ -31,7 +32,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT || 3001, () => {
+app.listen(process.env.PORT || 3001, () => {
 // server.listen(3001, () => {
   console.log("SERVER RUNNING");
 });
