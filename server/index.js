@@ -20,7 +20,7 @@ const io = new Server(server, {
 });
 
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
 // server.listen(3001, () => {
   io.on("connection", socket => {
     console.log("SERVER RUNNING");
