@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-// const http = require("http");
+const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
 app.use(cors());
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // const server = app.listen(PORT);
 const server = http.createServer(app);
@@ -14,7 +14,7 @@ const io = new Server(server, {
     cors: {
     // origin: "*",
     origin: "https://salty-retreat-48240.herokuapp.com",
-    // origin: "http://localhost:3001",
+    // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
@@ -22,13 +22,7 @@ const io = new Server(server, {
 
 server.listen(PORT, () => {
 // server.listen(3001, () => {
-  io.on("connection", socket => {
-    console.log("SERVER RUNNING");
-    console.log("ok");
-    console.log(socket.id);
-    // io.in(roomID).emit()
-    socket.emit("WELCOME_MESSAGE", ` ${socket.id} welcome!! `);
-  });
+  console.log("SERVER RUNNING");
 });
 
 io.on("connection", (socket) => {
@@ -55,19 +49,3 @@ if (process.env.NODE_ENV === 'production') {
       res.send('hello world!!');
   });
 };
-
-// app.use( bodyParser.json() );
-
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
-
-// app.use(cors())
-
-// app.get('/', (req, res)=>{
-//   res.send("Welcome to your server")
-// })
-
-// app.listen(PORT, ()=>{
-//   console.log(`Server is runing on port ${PORT}`)
-// })
