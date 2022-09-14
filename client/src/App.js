@@ -108,7 +108,7 @@ function App() {
         />
       {!showChat ? (
         <div className="joinChatContainer">
-          <h3>Join Chat</h3>
+          <h3>Join A Chat</h3>
           <form action="">
             <div className="input-field">
               <input
@@ -116,7 +116,7 @@ function App() {
                 type="text"
                 placeholder="Username"
                 onChange={(event) => {
-                  setUsername(event.target.value);
+                  setUsername(event.target.value)
                 }}
                 required
               />
